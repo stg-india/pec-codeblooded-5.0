@@ -1,8 +1,8 @@
 # Document (docx) Generation​ Problem Statement
 
-### One common challenge faced by users is converting HTML (Hypertext Markup Language) documents to DOCX (Microsoft Word) format. While both formats serve different purposes, there are scenarios where it's necessary to convert HTML content into a more widely used and editable format like DOCX.​
+- One common challenge faced by users is converting HTML (Hypertext Markup Language) documents to DOCX (Microsoft Word) format. While both formats serve different purposes, there are scenarios where it's necessary to convert HTML content into a more widely used and editable format like DOCX.​
 
-### The problem arises due to the fundamental structural differences between HTML and DOCX files. HTML is primarily used for creating web content and is based on markup language, whereas DOCX is a binary format designed for word processing, including text formatting, images, tables, and other elements.​
+- The problem arises due to the fundamental structural differences between HTML and DOCX files. HTML is primarily used for creating web content and is based on markup language, whereas DOCX is a binary format designed for word processing, including text formatting, images, tables, and other elements.​
 
 ​
 
