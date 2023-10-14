@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ed_title {
+      font-weight: 300 !important;
+    }
+
+    .ed_fs__italic {
+      font-style: italic;
+    }
+
+    .no_page_break {
+      page-break-before: avoid;
+    }
+
+    .align_right {
+      text-align: right;
+    }
+
+    .align_left {
+      text-align: left;
+    }
+
+    .wrapper {
+      font-family: "Source Sans Pro", Arial, Tahoma;
+      font-size: 12px;
+    }
+
+    .wrapper>*+* {
+      margin-top: 0.75em;
+    }
+
+    .wrapper>p {
+      white-space: pre-line;
+    }
+
+    .wrapper ul,
+    .wrapper ol {
+      padding: 0 1rem;
+    }
+
+    .wrapper h1,
+    .wrapper h2,
+    .wrapper h3,
+    .wrapper h4,
+    .wrapper h5,
+    .wrapper h6 {
+      line-height: 1.1;
+      padding-bottom: 0.5rem;
+    }
+
+    .wrapper h3 {
+      color: #004e89;
+      border-bottom: 1.5px solid #004e89;
+    }
+
+    .wrapper code {
+      background-color: rgba(97, 97, 97, 0.1);
+      color: #616161;
+    }
+
+    .wrapper pre {
+      color: #262626;
+      font-family: "Source Sans Pro", Arial, Tahoma;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .wrapper pre code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+
+    .wrapper pre .wrapper img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .wrapper blockquote {
+      padding-left: 1rem;
+      border-left: 2px solid rgba(13, 13, 13, 0.1);
+    }
+
+    .wrapper hr {
+      border: none;
+      border-top: 2px solid rgba(13, 13, 13, 0.1);
+      margin: 2rem 0;
+    }
+
+    .wrapper img {
+      width: 70%;
+    }
+
+    /* Table specific styling */
+    .wrapper table {
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border-collapse: collapse;
+      white-space: normal;
+    }
+
+    .wrapper table td,
+    .wrapper table th {
+      min-width: 1em;
+      padding: 8px 4px;
+      box-sizing: border-box;
+      position: relative;
+      border: 2px solid gray;
+      background-clip: padding-box;
+      white-space: normal;
+    }
+
+    .wrapper table tr,
+    .wrapper table td {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+
+    .wrapper table tr {
+      border: none;
+    }
+
+    .wrapper table tr:nth-child(even) {
+      background-color: #e8f1f5;
+    }
+
+    .wrapper table tr td:not(:first-child) {
+      color: #004e89;
+      font-weight: 600;
+    }
+
+    .wrapper table tr:first-child td {
+      padding-top: 10px;
+    }
+
+    .wrapper table tr td:first-child {
+      font-weight: normal;
+      color: #262626;
+    }
+
+    .wrapper table tr th {
+      font-weight: bold;
+      text-align: left;
+      background-color: #f1f3f5;
+    }
+
+    .ed_title {
+      font-weight: 300 !important;
+    }
+
+    .ed_heading {
+      font-weight: 500 !important;
+    }
+
+    .ed_fs__italic {
+      font-style: italic;
+    }
+
+    .no_page_break {
+      page-break-before: avoid;
+    }
+
+    .align_right {
+      text-align: right;
+    }
+
+    .align_left {
+      text-align: left;
+    }
+
+    .ed_paragraph {
+      font-size: 0.8rem;
+      font-weight: normal;
+      white-space: pre-line;
+      word-wrap: break-word;
+      min-height: 1.1rem;
+    }
+
+    .ed_heading {
+      color: #004e89;
+    }
+
+    .ed_externalHTML {
+      list-style-type: none;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+
+    .ed_table__cell,
+    .ed_table__cell_header {
+      padding: 0 24px !important;
+    }
+
+    .ed_table__cell.dark,
+    .ed_table__cell_header.dark {
+      background-color: #004e89 !important;
+      color: #e9e9e9 !important;
+    }
+
+    .ed_table__cell>.ed_paragraph {
+      min-height: 1rem;
+    }
+
+    .ed_table__cell_header {
+      background-color: #004e89 !important;
+      color: #e9e9e9 !important;
+    }
+
+    .ed_group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .ed_group.layout_2>div {
+      width: 48% !important;
+    }
+
+    .ed_group.layout_3>div {
+      width: 30% !important;
+    }
+
+    html,
+    body {
+      margin-left: -1.25rem !important;
+      margin-right: -1.25rem !important;
+    }
+
+    /*# sourceMappingURL=index.css.map */
+
+
+    @page :blank {
+      @top-center {
+        content: "This page is intentionally left blank";
+      }
+    }
+
+    @page {
+      size: letter;
+      font-size: 0.8rem !important;
+      font-family: 'Source Sans Pro', Arial, Tahoma !important;
+
+      @top-right {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'October 13, 2023';
+      }
+
+      @top-left {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'formatting test';
+      }
+
+      @footnote {
+        white-space: nowrap;
+        border-top: 1px solid black;
+        margin-left: -1.25rem !important;
+        margin-right: -1.25rem !important;
+      }
+    }
+
+    .footnote {
+      float: footnote;
+      margin-bottom: 2mm;
+      -prince-float-reference: page;
+      footnote-display: inline;
+      color: black;
+    }
+
+    ::footnote-call {
+      vertical-align: super;
+      font-size: 70%;
+    }
+
+    ::footnote-marker {
+      margin-left: 5px;
+    }
+
+    .pdf_header__logo {
+      position: running(logo);
+      text-align: left !important;
+    }
+
+    @page: first {
+      font-size: 0.8rem !important;
+      font-family: 'Source Sans Pro', Arial, Tahoma !important;
+
+      @top-right {
+        margin-top: 3.125rem;
+        content: 'October 13, 2023';
+      }
+
+      @top-left {
+        margin-top: 50px;
+        content: element(logo);
+        width: 50%;
+      }
+    }
+
+    #watermark {
+      position: fixed;
+      bottom: 50%;
+      left: 10%;
+      z-index: 10000;
+      font: 'Source Sans Pro', Arial, Tahoma !important;
+      font-size: 100px;
+      font-style: bold;
+      letter-spacing: 1.1rem;
+      color: grey;
+      transform: rotate(-30deg);
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body class=''>
+
+  <div id='watermark'>DRAFT REPORT</div>
+  <pre><html><head></head><body><h1 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">Testing display of HTML elements</h1><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This page contains a bunch of HTML Elements and text. You can copy the source code and use it test out various CSS Properties. For testing purposes, you may use <a target="_blank" rel="noopener noreferrer nofollow" href="css-linking#internal">internal styles</a>.</p><h1 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 1st level heading</h1><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><mark data-color="#E24A3C" style="background-color: #E24A3C; color: inherit">This is a paragraph with bg-color.</mark></p><h2 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 2nd level heading</h2><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><strong>This is a bold paragraph.</strong></p><h3 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 3rd level heading</h3><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><em>This is an italic paragraph.</em></p><h4 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 4th level heading</h4><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a paragraph with sub<sub>script</sub>.</p><h5 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 5th level heading</h5><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a paragraph with super<sup>script</sup>.</p><h6 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">This is 6th level heading</h6><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><span style="color: #E63946">This is a red paragraph.</span></p><h2 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">Basic block level elements</h2><p style="text-align: justify; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a justified paragraph (<code>p</code> element). To add some length to it, let us mention that this page was primarily written for testing the effect of <strong>user style sheets</strong>. You can use it for various other purposes as well, like just checking how your browser displays various HTML elements. This is another paragraph. <mark>I think it needs to be added that the set of elements tested is not exhaustive in any sense.</mark> I have selected those elements for which it can make sense to write user style sheet rules, in my opinion. This is a <code>div</code> element. Authors may use such elements instead of paragraph markup for various reasons. (End of <code>div</code>.)This is a normal paragraph (<code>p</code> element). To add some length to it, let us mention that this page was primarily written for testing the effect of <strong>user style sheets</strong>. You can use it for various other purposes as well, like just checking how your browser displays various HTML elements. This is another paragraph. <mark>I think it needs to be added that the set of elements tested is not exhaustive in any sense.</mark> I have selected those elements for which it can make sense to write user style sheet rules, in my opinion. This is a <code>div</code> element. Authors may use such elements instead of paragraph markup for various reasons. (End of <code>div</code>.)</p><blockquote><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a <em>block quotation</em> containing a single paragraph. Well, not quite, since this is not <em>really</em> quoted text, but I hope you understand the point. After all, this page does not use HTML markup very normally anyway.</p></blockquote><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">The following contains links to the Comm-244 home page</p><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><a target="_blank" rel="noopener noreferrer nofollow" href="http://web.simmons.edu/~grovesd/comm244">Comm-244 Website</a>, <a target="_blank" rel="noopener noreferrer nofollow" href="http://web.simmons.edu/~grovesd/comm244/week3">Week 3 page for class</a></p><h2 style="text-align: start; margin-left: 0px!important;; color: rgb(0, 0, 0); font-family: Times; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;" class="ed_heading" contenteditable="true">Lists</h2><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a paragraph before an <strong>unordered</strong> list (<code>ul</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are logically related to a list, e.g. as a "list header".</p><ul class="ed_list"><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">One.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Two.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Three. Well, probably this list item should be longer. Note that for short items lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Four. This is the last item in this list Let us terminate the list now without making any more fuss about it.</p></li></ul><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a paragraph before a <strong>ordered</strong> list (<code>ol</code>). Note that the spacing between a paragraph and a list before or after that is hard to tune in a user style sheet. You can't guess which paragraphs are logically related to a list, e.g. as a "list header".</p><ol style="text-align: start"><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">One.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Two.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Three. Well, probably this list item should be longer. Note that if items are short, lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Four. This is the last item in this list. Let us terminate the list now without making any more fuss about it.</p></li></ol><p style="text-align: start; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a paragraph before a <strong>definition</strong> list (<code>dl</code>). In principle, such a list should consist of <em>terms</em> and associated definitions. But many authors use <code>dl</code> elements for fancy "layout" things. Usually the effect is not <em>too</em> bad, if you design user style sheet rules for <code>dl</code> which are suitable for real definition lists.</p><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a right aligned paragraph.</p><p style="text-align: center; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a center aligned paragraph.</p><p style="text-align: right; margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">This is a right aligned paragraph.</p></body></html></pre>
+</body>
+
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ed_heading {
+      font-weight: 500 !important;
+    }
+    .no_page_break {
+      page-break-before: avoid;
+    }
+
+    .wrapper {
+      font-family: "Source Sans Pro", Arial, Tahoma;
+      font-size: 12px;
+    }
+
+    .wrapper>*+* {
+      margin-top: 0.75em;
+    }
+
+    .wrapper>p {
+      white-space: pre-line;
+    }
+
+    .wrapper ul,
+    .wrapper ol {
+      padding: 0 1rem;
+    }
+
+    .wrapper h1,
+    .wrapper h2,
+    .wrapper h3,
+    .wrapper h4,
+    .wrapper h5,
+    .wrapper h6 {
+      line-height: 1.1;
+      padding-bottom: 0.5rem;
+    }
+
+    .wrapper h3 {
+      color: #004e89;
+      border-bottom: 1.5px solid #004e89;
+    }
+
+    .wrapper code {
+      background-color: rgba(97, 97, 97, 0.1);
+      color: #616161;
+    }
+
+    .wrapper pre {
+      color: #262626;
+      font-family: "Source Sans Pro", Arial, Tahoma;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .wrapper pre code {
+      color: inherit;
+      padding: 0;
+      background: none;
+      font-size: 0.8rem;
+    }
+
+    .wrapper pre .wrapper img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .wrapper blockquote {
+      padding-left: 1rem;
+      border-left: 2px solid rgba(13, 13, 13, 0.1);
+    }
+
+    .wrapper hr {
+      border: none;
+      border-top: 2px solid rgba(13, 13, 13, 0.1);
+      margin: 2rem 0;
+    }
+
+    .wrapper img {
+      width: 70%;
+    }
+
+    /* Table specific styling */
+    .wrapper table {
+      table-layout: fixed;
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border-collapse: collapse;
+      white-space: normal;
+    }
+
+    .wrapper table td,
+    .wrapper table th {
+      min-width: 1em;
+      padding: 8px 4px;
+      box-sizing: border-box;
+      position: relative;
+      border: 2px solid gray;
+      background-clip: padding-box;
+      white-space: normal;
+    }
+
+    .wrapper table tr,
+    .wrapper table td {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+
+    .wrapper table tr {
+      border: none;
+    }
+
+    .wrapper table tr:nth-child(even) {
+      background-color: #e8f1f5;
+    }
+
+    .wrapper table tr td:not(:first-child) {
+      color: #004e89;
+      font-weight: 600;
+    }
+
+    .wrapper table tr:first-child td {
+      padding-top: 10px;
+    }
+
+    .wrapper table tr td:first-child {
+      font-weight: normal;
+      color: #262626;
+    }
+
+    .wrapper table tr th {
+      font-weight: bold;
+      text-align: left;
+      background-color: #f1f3f5;
+    }
+
+    .ed_heading {
+      font-weight: 500 !important;
+    }
+
+    .ed_fs__italic {
+      font-style: italic;
+    }
+
+    .no_page_break {
+      page-break-before: avoid;
+    }
+
+    .align_right {
+      text-align: right;
+    }
+
+    .align_left {
+      text-align: left;
+    }
+
+    .ed_paragraph {
+      font-size: 0.8rem;
+      font-weight: normal;
+      white-space: pre-line;
+      word-wrap: break-word;
+      min-height: 1.1rem;
+    }
+
+    .ed_heading {
+      color: #004e89;
+    }
+
+    .ed_table__cell,
+    .ed_table__cell_header {
+      padding: 0 24px !important;
+    }
+
+    .ed_table__cell.dark,
+    .ed_table__cell_header.dark {
+      background-color: #004e89 !important;
+      color: #e9e9e9 !important;
+    }
+
+    .ed_table__cell>.ed_paragraph {
+      min-height: 1rem;
+    }
+
+    .ed_table__cell_header {
+      background-color: #004e89 !important;
+      color: #e9e9e9 !important;
+    }
+
+    .ed_title {
+      display: flex;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .ed_group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .ed_group.layout_2>div {
+      width: 48% !important;
+    }
+
+    .ed_group.layout_3>div {
+      width: 30% !important;
+    }
+
+    html,
+    body {
+      margin-left: -1.25rem !important;
+      margin-right: -1.25rem !important;
+    }
+
+    /*# sourceMappingURL=index.css.map */
+
+
+    @page :blank {
+      @top-center {
+        content: "This page is intentionally left blank";
+      }
+    }
+
+    @page {
+      size: letter;
+      font-size: 0.8rem !important;
+      font-family: 'Source Sans Pro', Arial, Tahoma !important;
+
+      @top-right {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'October 13, 2023';
+      }
+
+      @top-left {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'new business deal';
+      }
+
+      @footnote {
+        white-space: nowrap;
+        border-top: 1px solid black;
+        margin-left: -1.25rem !important;
+        margin-right: -1.25rem !important;
+      }
+    }
+
+    .footnote {
+      float: footnote;
+      margin-bottom: 2mm;
+      -prince-float-reference: page;
+      footnote-display: inline;
+      color: black;
+    }
+
+    ::footnote-call {
+      vertical-align: super;
+      font-size: 70%;
+    }
+
+    ::footnote-marker {
+      margin-left: 5px;
+    }
+
+    .pdf_header__logo {
+      position: running(logo);
+      text-align: left !important;
+    }
+
+    @page: first {
+      font-size: 0.8rem !important;
+      font-family: 'Source Sans Pro', Arial, Tahoma !important;
+
+      @top-right {
+        margin-top: 3.125rem;
+        content: 'October 13, 2023';
+      }
+
+      @top-left {
+        margin-top: 50px;
+        content: element(logo);
+        width: 50%;
+      }
+    }
+
+    #watermark {
+      position: fixed;
+      bottom: 50%;
+      left: 10%;
+      z-index: 10000;
+      font: 'Source Sans Pro', Arial, Tahoma !important;
+      font-size: 100px;
+      font-style: bold;
+      letter-spacing: 1.1rem;
+      color: grey;
+      transform: rotate(-30deg);
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body class='wrapper'>
+
+  <div id='watermark'>DRAFT REPORT</div>
+  <pre><html><head></head><body><table id="0.7171120943499827" class="ed_table" style="table-layout: fixed; width: 716px !important;"><tbody><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Company</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Contact</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Country</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Alfreds Futterkiste</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Maria Anders</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Germany</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Centro comercial Moctezuma</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Francisco Chang</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Mexico</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Ernst Handel</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Roland Mendel</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Austria</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Island Trading</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Helen Bennett</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">UK</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Laughing Bacchus Winecellars</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Yoshi Tannamuri</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Canada</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Magazzini Alimentari Riuniti</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Giovanni Rovelli</p></td><td colspan="1" rowspan="1" colwidth="238.66666666666666" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 238.66666666666666px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Italy</p></td></tr></tbody></table><h1 style="margin-left: 0px!important;; null" class="ed_heading" contenteditable="true">Heading 1</h1><h3 style="margin-left: 0px!important;; null" class="ed_heading" contenteditable="true">heading 3</h3><p style="margin-left: 15px!important;" class="ed_paragraph" contenteditable="inherit"><span>font-size:22 + tab</span></p><ul class="ed_list"><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Item</p></li></ul><ol style="text-align: start"><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">First item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Second item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Third item</p></li><li class="ed_list__item"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Fourth item</p></li></ol><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit"><img src="data:image/png;base64,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" width="75" height="70"></p><hr style="border: 3px solid #004E89"><h2 style="margin-left: 0px!important; page-break-before: always;" class="ed_heading" contenteditable="true">start of new page</h2><table id="0.7171120943499827" class="ed_table" style="table-layout: fixed; width: 592.3159722222222px !important;"><tbody><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="491.0069444444444" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 491.0069444444444px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">small table heading</p></td><td colspan="1" rowspan="1" colwidth="49.100694444444436" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 49.100694444444436px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">cost</p></td><td colspan="1" rowspan="1" colwidth="52.20833333333333" backgroundcolor="#f1f3f5" class="ed_table__cell_header ed_table__header" rowno="-1" colno="-1" style="background-color: #f1f3f5; min-width: 52.20833333333333px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">tax</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="491.0069444444444" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 491.0069444444444px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Total Expense</p></td><td colspan="1" rowspan="1" colwidth="49.100694444444436" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 49.100694444444436px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">100</p></td><td colspan="1" rowspan="1" colwidth="52.20833333333333" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 52.20833333333333px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">18</p></td></tr><tr height="20" fontsize="14" class="ed_table__row" cmwidth="1152"><td colspan="1" rowspan="1" colwidth="491.0069444444444" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 491.0069444444444px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Total Saving</p></td><td colspan="1" rowspan="1" colwidth="49.100694444444436" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 49.100694444444436px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">200</p></td><td colspan="1" rowspan="1" colwidth="52.20833333333333" backgroundcolor="inherit" rowno="-1" colno="-1" class="ed_table__cell" style="background-color: inherit; width: 52.20833333333333px;"><p style="margin-left: 0px!important;" class="ed_paragraph" contenteditable="inherit">Nil</p></td></tr></tbody></table></body></html></pre>
+</body>
+
+</html>

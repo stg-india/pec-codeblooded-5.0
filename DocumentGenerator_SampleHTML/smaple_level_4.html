@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 48%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    @page {
+      size: letter;
+      font-size: 0.8rem !important;
+      font-family: 'Source Sans Pro', Arial, Tahoma !important;
+
+      @bottom-right {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'October 14, 2023';
+      }
+
+      @top-left {
+        color: #023b66 !important;
+        font-weight: bold;
+        content: 'page header';
+      }
+
+      @footnote {
+        white-space: nowrap;
+        border-top: 1px solid black;
+        margin-left: -1.25rem !important;
+        margin-right: -1.25rem !important;
+      }
+    }
+
+    .footnote {
+      float: footnote;
+      margin-bottom: 2mm;
+      -prince-float-reference: page;
+      footnote-display: inline;
+      color: black;
+    }
+
+    ::footnote-call {
+      vertical-align: super;
+      font-size: 70%;
+    }
+
+    ::footnote-marker {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>HTML Table</h2>
+
+  <table>
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+    <tr>
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria<span class="footnote">Pasta</span></td>
+    </tr>
+    <tr>
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy<span class="footnote">Pizza</span></td>
+    </tr>
+  </table>
+  <table style='page-break-before: always;'>
+    <tr>
+      <th>Company</th>
+      <th>Contact</th>
+      <th>Country</th>
+    </tr>
+    <tr>
+      <td>Alfreds Futterkiste</td>
+      <td>Maria Anders</td>
+      <td>Germany</td>
+    </tr>
+    <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr>
+    <tr>
+      <td>Ernst Handel</td>
+      <td>Roland Mendel</td>
+      <td>Austria<span class="footnote">Android</span></td>
+    </tr>
+    <tr>
+      <td>Island Trading</td>
+      <td>Helen Bennett</td>
+      <td>UK</td>
+    </tr>
+    <tr>
+      <td>Laughing Bacchus Winecellars</td>
+      <td>Yoshi Tannamuri</td>
+      <td>Canada</td>
+    </tr>
+    <tr>
+      <td>Magazzini Alimentari Riuniti</td>
+      <td>Giovanni Rovelli</td>
+      <td>Italy<span class="footnote">Apple</span></td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
