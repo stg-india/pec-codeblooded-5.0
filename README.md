@@ -14,6 +14,9 @@
 
 
 ## Topics 
+
+Team can chose ONE of the topic from below and work on that.
+
 - [Scenario - 1: Data Analysis](DataAnalysis.md)
 
 - [Scenario - 2: Audit Management](AuditManagement.md)
