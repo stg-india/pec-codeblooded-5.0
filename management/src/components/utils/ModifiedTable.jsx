@@ -7,6 +7,7 @@ import {
 
 import { AiOutlineDelete as DeleteIcon } from "react-icons/ai";
 import { BiEditAlt as EditIcon } from "react-icons/bi";
+import { useNavigate } from "react-router";
 
 // name: 'harman',
 // sid: 211,
@@ -21,6 +22,7 @@ export const ModifiedTable = ({ columns, data }) => {
     data,
     getCoreRowModel: getCoreRowModel(),
   });
+  const navigate = useNavigate();
   return (
     <div>
       <table className="w3-table w3-striped mt-9 shadow-lg">
@@ -45,7 +47,9 @@ export const ModifiedTable = ({ columns, data }) => {
                 </td>
               ))}
               <div className="flex">
-                <button className="flex bg-green-600 items-center py-1 px-2 text-white rounded-md ">
+                <button className="flex bg-green-600 items-center py-1 px-2 text-white rounded-md " onClick={() => {
+                  navigate(`/dashboard/students/modify/${row.id}`)
+                }}>
                   <EditIcon />
                   <div>Edit</div>
                 </button>
