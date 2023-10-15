@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Landing current={true} />} />
           {/* <Route element={<VerifyAuth/>}>
           </Route> */}
-          <Route path="/dashboard" element={<DashBoard/>}/>
+          <Route path="/dashboard/*" element={<DashBoard/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>

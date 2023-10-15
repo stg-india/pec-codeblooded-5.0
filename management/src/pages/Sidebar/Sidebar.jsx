@@ -9,25 +9,25 @@ const Sidebar = () => {
   const list = [
     {
       name: "DashBoard",
-      path: "/",
+      path: "/dashboard",
       icon: Dash,
       on: false,
     },
     {
       name: "Student Management",
-      path: "/students",
+      path: "/dashboard/students",
       icon: EventIcon,
       on: false,
     },
     {
-      name: "Student Management",
-      path: "/students",
+      name: "Staff Management",
+      path: "/dashboard/staff",
       icon: EventIcon,
       on: false,
     },
     {
-      name: "Student Management",
-      path: "/students",
+      name: "Department Management",
+      path: "/dashboard/department",
       icon: EventIcon,
       on: false,
     },

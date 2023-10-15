@@ -100,15 +100,8 @@
   );
 }
 
-.bg-orange-gradient{
-  background-color: #e55614;
-  background: linear-gradient(
-    157.81deg,
-    #f1531a 12.19%,
-    #cf6129 29.82%,
-    #9030d5 80.94%,
-    #7b09b4 90.29%
-  );
+.bg-purple{
+  background-color: #6366F1;
 }
 
 .bg-orange-texture{
