@@ -30,7 +30,7 @@ const Button = ({ emailRef, passwordRef, isSpace }) => {
   useEffect(() => {
     if (status == 200) {
       setTimeout(() => {
-        const from = location.state?.from?.pathname || `/profile/${auth.user}`;
+        const from = location.state?.from?.pathname || `/profile/${auth.email}`;
         navigate(from, { replace: true });
       }, 2000);
     }

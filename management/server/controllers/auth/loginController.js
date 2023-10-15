@@ -5,8 +5,8 @@ require('dotenv').config()
 
 const handleLogin = async (req, res) => {
   console.log(req.body);
-  const { name, password, email } = req.body;
-  if (!name || !password || !email) return res.sendStatus(401)
+  const { password, email } = req.body;
+  if (!password || !email) return res.sendStatus(401)
 
   let foundUser = await User.findOne({ email: email });
 
@@ -18,14 +18,15 @@ const handleLogin = async (req, res) => {
     const accessToken = jwt.sign(
       {
         email: foundUser.email,
-        name: foundUser.name
+        user: foundUser.name
       },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "10m" }
     );
     const refreshToken = jwt.sign(
       {
-        email: foundUser.email,
+        user: foundUser.name,
+        email:foundUser.email
       },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }

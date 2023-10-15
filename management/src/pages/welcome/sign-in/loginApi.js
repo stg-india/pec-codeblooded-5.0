@@ -8,6 +8,7 @@ export const useLogin = () => {
   const {setAuth} = useAuth();
 
   const apiCall = async (data) => {
+    console.log(data);
     const response = await axios.post(
       "/login",
       {
@@ -26,11 +27,11 @@ export const useLogin = () => {
   const { mutate, isLoading } = useMutation(apiCall, {
     onSuccess: (response) => {
       const accessToken = response.data?.accessToken;
-      const user = response.data?.email;
-      setAuth({ user, accessToken });
+      const email = response.data?.email;
+      setAuth({ email, accessToken });
       setStatus(response.status);
       //Store details in localstorage
-      localStorage.setItem("auth", JSON.stringify({ user, accessToken }));
+      localStorage.setItem("auth", JSON.stringify({ email, accessToken }));
     },
     onError: (err) => {
       if (!err?.response) {

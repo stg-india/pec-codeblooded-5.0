@@ -15,7 +15,10 @@ const Button = ({ States }) => {
 
   const {mutate, isLoading}= useMutation(register, {
     onSuccess: data => {
-      login({username:User['Name'].trim(),password:User['Password'].trim()});
+      login({
+        email: User["E-mail Address"].trim(),
+        password: User["Password"].trim(),
+      });
       setStatus(data);
     },
     onError: err => {
@@ -36,13 +39,7 @@ const Button = ({ States }) => {
       setEmpty(true);
       return;
     }
-    // if (User["Password"] != User["Confirm Password"]) {
-    //   setpass(true);
-    //   setTimeout(() => {
-    //     setpass(false);
-    //   }, 3000);
-    //   return;
-    // }
+  
 
      mutate(User);
      

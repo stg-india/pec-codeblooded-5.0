@@ -10,7 +10,9 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import { ModifiedTable } from "../utils/ModifiedTable";
 import ModifyStudentPage from "./modifyStudentPage";
 import useGetCall from "../../setup/hooks/useGetCall";
+import useAuth from "../../setup/hooks/useAuth";
 const Main = () => {
+  const { auth } = useAuth();
   const navigate = useNavigate();
   const [studentList, setStudentList] = useState([{
     name: "",
@@ -41,7 +43,10 @@ const Main = () => {
 
   const [data, isLoading, status] = useGetCall({
     url: "/get-students",
-    query: {},
+    query: {
+      body: {},
+      params:{email: auth.email}
+    },
   });
 
   useEffect(() => {

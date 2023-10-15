@@ -15,21 +15,21 @@ const useRefreshToken = () => {
         },
         withCredentials: true,
       });
-      console.log(response);
+
        localStorage.setItem(
         "auth",
          JSON.stringify({
-          user: response.data.username,
+          email: response.data.email,
           accessToken: response.data.accessToken,
         })
       );
 
        setAuth({
-        user: response.data.username,
+        email: response.data.email,
         accessToken: response.data.accessToken,
       });
      
-      return {username:response.data.username, newAccessToken:response.data.accessToken};
+      return {email:response.data.email, newAccessToken:response.data.accessToken};
     } catch (err) {
       navigate("/login", { state: { from: location } });
     }

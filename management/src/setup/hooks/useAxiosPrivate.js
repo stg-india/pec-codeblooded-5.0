@@ -22,12 +22,12 @@ const useAxiosPrivate = () => {
             async (error) => {
                 const prevRequest = error?.config;
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
-                    console.log('agya');
+                    
                     prevRequest.sent = true;
-                    const {username, newAccessToken} = await refresh();
+                    const {email, newAccessToken} = await refresh();
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                    
-                    return axiosPrivate({...prevRequest, params:{username:username}});
+                    return axiosPrivate({...prevRequest, params:{email:email}});
                 }
                 
                 return Promise.reject(error);
