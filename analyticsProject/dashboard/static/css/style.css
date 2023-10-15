@@ -7,7 +7,7 @@
   }
 
   .navbar {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -41,14 +41,17 @@
   }
 
   .chart {
+    box-shadow: 10px 10px 5px rgb(255, 219, 244);;
     flex: 1;
     background-color: #f0f0f0;
     padding: 20px;
+    height: 155px;
     margin-right: 20px;
     border-radius: 10px;
   }
 
   .data {
+    box-shadow: 10px 10px 5px rgb(255, 219, 244);;
     flex: 1;
     background-color: #f0f0f0;
     padding: 20px;
@@ -72,12 +75,15 @@
   }
 
   .card {
+    
     flex: 1;
     background-color: #f0f0f0;
+    height: 300px;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 2px rgb(193, 167, 185);
   }
 
   .card-container {
