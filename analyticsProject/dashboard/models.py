@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Order(models.Model):
-    CASE_NUMBER = models.CharField(max_length=50)
+
     CASE_NUMBER = models.CharField(max_length=50)
     CASE_STATUS = models.CharField(max_length=50)
     CASE_SUBMITTED = models.DateTimeField
