@@ -1,6 +1,8 @@
 import React from "react";
 import Search from "../utils/Search";
 import Button from "../utils/Button";
+import { ModifiedTable } from "../utils//ModifiedTable";
+import { data,columns } from "../utils/data";
 
 const Main = () => {
   return (
@@ -9,7 +11,7 @@ const Main = () => {
               <Search text={"Search Student"} />
         <Button text={"Add Student"} />
       </div>
-      <Table/>
+      <ModifiedTable columns={columns} data={data}/>
     </>
   );
 };
