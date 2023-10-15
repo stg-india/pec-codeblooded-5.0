@@ -1,0 +1,34 @@
+@import "colors"; 
+footer{
+    background-color:$second; 
+    height: 200px;
+    width: 100%; 
+    padding: 2rem; 
+    color: $first; 
+    display:grid; 
+    grid-template-columns: 4fr 1fr;
+    >div{
+        display:flex; 
+        flex-direction:column;
+        justify-content: center;
+        >h1{
+            font: 700 2rem $text2; 
+            color: $first;
+        }
+        >p{
+            font: 500 1.2rem $text2; 
+        }
+        >div{
+            display: flex; 
+            flex-direction:column;
+            align-items:center; 
+            a{
+                color: $first; 
+                font: 900 1.2rem $text2; 
+                &:hover{
+                    color: $dark; 
+                }
+            }
+        }
+    }
+}
