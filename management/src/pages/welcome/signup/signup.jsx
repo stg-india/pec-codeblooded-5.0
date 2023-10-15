@@ -5,11 +5,9 @@ import Animation from "../../welcome/animation";
 
 const Signup = ({ isLogin, setLogin }) => {
   const [User, setUser] = useState({
-    "Full Name": "",
-    Username: "",
+    Name: "",
     "E-mail Address": "",
-    Password: "",
-    "Confirm Password": "",
+    Password: ""
   });
   const [isEmpty, setEmpty] = useState(false);
 
@@ -25,11 +23,7 @@ const Signup = ({ isLogin, setLogin }) => {
 
             <div className="w-full text-sm">
               <Input
-                placeholder="Full Name"
-                State={{ User, setUser, isEmpty }}
-              />
-              <Input
-                placeholder="Username"
+                placeholder="Name"
                 State={{ User, setUser, isEmpty }}
               />
               <Input
@@ -38,10 +32,6 @@ const Signup = ({ isLogin, setLogin }) => {
               />
               <Input
                 placeholder="Password"
-                State={{ User, setUser, isEmpty }}
-              />
-              <Input
-                placeholder="Confirm Password"
                 State={{ User, setUser, isEmpty }}
               />
               <Button States={{ User, setEmpty }} />

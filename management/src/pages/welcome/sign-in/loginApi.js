@@ -11,7 +11,7 @@ export const useLogin = () => {
     const response = await axios.post(
       "/login",
       {
-        nameOrmail: data.username,
+        email: data.email,
         password: data.password,
       },
       {
@@ -26,7 +26,7 @@ export const useLogin = () => {
   const { mutate, isLoading } = useMutation(apiCall, {
     onSuccess: (response) => {
       const accessToken = response.data?.accessToken;
-      const user = response.data?.username;
+      const user = response.data?.email;
       setAuth({ user, accessToken });
       setStatus(response.status);
       //Store details in localstorage

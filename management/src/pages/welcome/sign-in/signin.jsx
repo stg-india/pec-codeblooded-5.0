@@ -4,7 +4,7 @@ import Animation from "../animation";
 
 const Login = ({ isLogin, setLogin }) => {
   const [isSpace, setSpace] = useState(-1);
-  const usernameRef = useRef();
+  const emailRef = useRef();
   const passwordRef = useRef();
 
   return (
@@ -14,15 +14,14 @@ const Login = ({ isLogin, setLogin }) => {
         <div className="w-96  rounded-md py-20 shadow-lg">
           <div className="mx-10 h-full flex flex-col items-center">
             <div className="my-4 flex items-center">
-              <div className="bg-logo bg-no-repeat bg-cover w-16 h-16 "></div>
               <div className="text-5xl font-extrabold ">Student Management</div>
             </div>
 
             <div className="flex flex-col justify-evenly w-full h-[70%] text-sm">
               <input
-                ref={usernameRef}
+                ref={emailRef}
                 type="text"
-                placeholder="Username or E-mail Address"
+                placeholder="E-mail Address"
                 onChange={handleChange}
                 className="w-full h-11 border-[1px] rounded-sm p-2 mb-4"
               />
@@ -44,7 +43,7 @@ const Login = ({ isLogin, setLogin }) => {
                 </div>
               )}
               <Button
-                usernameRef={usernameRef}
+                emailRef={emailRef}
                 passwordRef={passwordRef}
                 isSpace={isSpace}
               />
@@ -69,12 +68,12 @@ const Login = ({ isLogin, setLogin }) => {
 
   function handleChange(e) {
     if (
-      usernameRef.current.value.trim().includes(" ") &&
+      emailRef.current.value.trim().includes(" ") &&
       passwordRef.current.value.trim().includes(" ")
     ) {
       setSpace(2);
     } else if (passwordRef.current.value.trim().includes(" ")) setSpace(1);
-    else if (usernameRef.current.value.trim().includes(" ")) setSpace(0);
+    else if (emailRef.current.value.trim().includes(" ")) setSpace(0);
     else setSpace(-1);
   }
 };

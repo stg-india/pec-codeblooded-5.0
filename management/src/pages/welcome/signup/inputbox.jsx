@@ -2,8 +2,6 @@ import React, { useState, useRef } from "react";
 
 const Input = ({ placeholder, State }) => {
   const { User, setUser, isEmpty } = State;
-  const specialChars = /[ `!@#$%^&*()+\-=\[\]{};':"\\|,<>\/?~]/;
-
   const [isError, setError] = useState(false);
   const inputRef = useRef(null);
 
@@ -11,12 +9,6 @@ const Input = ({ placeholder, State }) => {
     let obj = User;
     obj[placeholder] = e.target.value;
     setUser({ ...obj });
-
-    const value = e.target.value.trim();
-
-    if (placeholder === "Username" && specialChars.test(value)) {
-      setError(true);
-    } else setError(false);
   };
 
   // class for text
@@ -51,10 +43,7 @@ const Input = ({ placeholder, State }) => {
     </div>
   );
 
-  function ErrorText(value) {
-    if (value === "Username")
-      return `${value} can only contain letters, numbers, underscores and periods `;
-  }
+
 
   function type(placeholder) {
     if (placeholder === "E-Mail Address") {

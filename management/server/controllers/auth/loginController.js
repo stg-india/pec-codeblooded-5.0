@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config()
 
 const handleLogin = async (req, res) => {
+  console.log(req.body);
   const { name, password, email } = req.body;
   if (!name || !password || !email) return res.sendStatus(401)
 
@@ -36,7 +37,7 @@ const handleLogin = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
     });
-    res.json({ accessToken, name:foundUser.name }); 
+    res.json({ accessToken, email:foundUser.email }); 
   }
   else {
     res.sendStatus(401); 

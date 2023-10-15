@@ -17,11 +17,9 @@ const handleNewUser = async (req, res) => {
     const newUser = {
       name: name,
       email: email,
-      password: password,
+      password: hashedPass,
     };
     await User.create(newUser);
-
-    console.log(newUser);
     res.status(200).json(newUser);
   } catch (err) {
     res.sendStatus(500);
