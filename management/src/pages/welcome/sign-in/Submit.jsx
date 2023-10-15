@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLogin } from "./loginApi";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import useAuth from "../../../setup/hooks/useAuth";
-const Button = ({ usernameRef, passwordRef, isSpace }) => {
+const Button = ({ emailRef, passwordRef, isSpace }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,7 +13,7 @@ const Button = ({ usernameRef, passwordRef, isSpace }) => {
 
   const handleClick = () => {
     if (isSpace != -1) return;
-    if (usernameRef.current.value.trim() == "") {
+    if (emailRef.current.value.trim() == "") {
       setError("Username cannot be empty");
       return;
     }
@@ -22,12 +22,11 @@ const Button = ({ usernameRef, passwordRef, isSpace }) => {
       return;
     }
     CallApi({
-      username: usernameRef.current.value.trim(),
+      email: emailRef.current.value.trim(),
       password: passwordRef.current.value.trim(),
     });
   };
 
-  console.log(status)
   useEffect(() => {
     if (status == 200) {
       setTimeout(() => {
