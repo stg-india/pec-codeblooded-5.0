@@ -4,7 +4,6 @@ import {
   getCoreRowModel,
   flexRender,
 } from "@tanstack/react-table";
-import { useMemo } from "react";
 
 // name: 'harman',
 // sid: 211,
@@ -13,33 +12,7 @@ import { useMemo } from "react";
 // cgpa: 9.0,
 // branch: "ECE"
 
-export const ModifiedTable = ({columns,data}) => {
-  // const columns = [
-  //   {
-  //     header: "ID",
-  //     accessorKey: "sid",
-  //   },
-  //   {
-  //     header: "Name",
-  //     accessorKey: "name",
-  //   },
-  //   {
-  //     header: "Phone Number",
-  //     accessorKey: "phoneNo",
-  //   },
-  //   {
-  //     header: "Batch Year",
-  //     accessorKey: "batchYear",
-  //   },
-  //   {
-  //     header: "CGPA",
-  //     accessorKey: "cgpa",
-  //   },
-  //   {
-  //     header: "Branch",
-  //     accessorKey: "branch",
-  //   }
-  // ];
+export const ModifiedTable = ({ columns, data }) => {
   const table = useReactTable({
     columns,
     data,

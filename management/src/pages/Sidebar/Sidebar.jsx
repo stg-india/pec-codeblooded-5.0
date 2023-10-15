@@ -72,7 +72,6 @@ const Sidebar = () => {
           )}
         </div>
         <hr className="border-white/30 my-4" />
-        <div></div>
       </div>
     </div>
   );
@@ -81,7 +80,7 @@ const Sidebar = () => {
 function element(index, value, path, Icon, isSelect) {
   return (
     <Link
-      onClick={() => toast("Landed On Dashboard")}
+      onClick={() => toast(`Landed On ${value}`)}
       key={index}
       to={path}
       className="relative group flex items-center justify-start h-12 hover:bg-white/10 rounded-lg px-2"
