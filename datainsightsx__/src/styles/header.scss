@@ -1,0 +1,41 @@
+@import "colors"; 
+nav{
+    width:100%; 
+    display: flex; 
+    padding: 1rem; 
+    justify-content: space-between;     
+    align-items: center;
+    position: sticky;
+    background-color: $second; 
+    top: 0%; 
+    z-index: 10; 
+    >div{
+        display: flex; 
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center; 
+        >h1{
+            font: 700 1.5rem $text1;
+            color: $first; 
+            padding: 0.1rem; 
+        }
+        >img{
+            width: 3rem;
+            margin: 0.1rem;
+        }
+    }
+    >main{
+        width: 40%;
+        display:flex; 
+        justify-content:flex-end; 
+        >a{
+            color: $first; 
+            margin: 3rem; 
+            font: 1000 1.1rem $text1;
+            &:hover{
+                color: lightgreen; 
+            }
+        }
+    }
+
+}
