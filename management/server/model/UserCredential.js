@@ -2,11 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserCredential = new Schema({
-    fullname: {
-        type: String,
-        required:true
-    },
-    username: {
+    name: {
         type: String,
         required: true
     },
