@@ -6,7 +6,7 @@ import "react-simple-typewriter";
 const Home = () => {
   return (
     <>
-        <div className="home1">
+        <div className="home1" id ="home">
             <main>
                 <img src={vg} alt="Logo" />
                 <div className='Writer'>
@@ -26,7 +26,7 @@ const Home = () => {
 
             </main>
         </div>
-        <div className="home2">
+        <div className="home2" id ="about">
           <img src={vg2} alt="Graphics" />
             <div>
               <h1>Who we Are?</h1>

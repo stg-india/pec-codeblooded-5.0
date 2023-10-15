@@ -1,6 +1,7 @@
 import React from 'react'
-import {Link} from "react-router-dom"; 
+// import {Link} from "react-router-dom"; 
 import logo from "../Assets/Logo2.jpeg"
+import {HashLink} from "react-router-hash-link"; 
 const Header = () => {
   return (
     <nav>   
@@ -9,8 +10,9 @@ const Header = () => {
             <h1>dataInsightsX</h1>
         </div>
         <main>
-            <Link to={"/"}>Home</Link>
-            <Link to={"#about"}>About</Link>
+            <HashLink to={"/#home"}>Home</HashLink>
+            <HashLink to={"#about"}>About</HashLink>
+            <HashLink to={"#contact"}>Contact Us</HashLink>
         </main>
         
     </nav>
