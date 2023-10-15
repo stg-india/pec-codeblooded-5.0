@@ -6,7 +6,7 @@ import Department from '../../components/department/main';
 const Main = () => {
   return <div className="p-6 h-[calc(100%-64px)]">
     <Routes>
-      <Route path='/students' element={<Student/>} />
+      <Route path='/students/*' element={<Student/>} />
       <Route path='/staff' element={<Staff/>} />
       <Route path='/department' element={<Department/>} />
     </Routes>
