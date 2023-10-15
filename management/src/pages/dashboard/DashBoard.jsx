@@ -1,6 +1,6 @@
 import React from 'react'
 import SideBar from '../Sidebar/Sidebar';
-import Navbar from '../navbar/navbar';
+import Navbar from '../navbar/Navbar';
 import Main from '../main/Main';
 const DashBoard = () => {
   return (
