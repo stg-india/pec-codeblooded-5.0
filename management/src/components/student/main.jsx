@@ -7,19 +7,19 @@ import StudentAudit from "./studentAudit";
 import { LogButton } from "../utils/LogButton";
 import { sample, columns } from "../utils/student_sampleData";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { ModifiedTable } from "../utils//ModifiedTable";
+import { ModifiedTable } from "../utils/ModifiedTable";
 import ModifyStudentPage from "./modifyStudentPage";
 import useGetCall from "../../setup/hooks/useGetCall";
 const Main = () => {
   const navigate = useNavigate();
-  const [studentList, setStudentList] = useState({
+  const [studentList, setStudentList] = useState([{
     name: "",
     sid: "",
     phoneNo: "",
     batchYear: "",
     branch: "",
     cgpa: "",
-  });
+  }]);
 
   const [studentState, setStudentState] = useState({
     name: "",
@@ -40,16 +40,13 @@ const Main = () => {
   });
 
   const [data, isLoading, status] = useGetCall({
-    url: "/",
-    query: {
-      body: {},
-      params: {},
-    },
+    url: "/get-students",
+    query: {},
   });
 
   useEffect(() => {
     if (!isLoading) {
-      
+      console.log(data);
     }
   }, [data])
 

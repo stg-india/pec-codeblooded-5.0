@@ -1,4 +1,4 @@
-export const data = [
+export const sample = [
     {
         name: 'harman singh',
         sid: 21105003,

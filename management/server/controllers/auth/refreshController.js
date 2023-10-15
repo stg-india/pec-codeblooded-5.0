@@ -16,7 +16,7 @@ const refreshJWT = (req, res) => {
         if (err) return res.sendStatus(403);
 
         const accessToken = jwt.sign(
-          { email: decoded.email },
+          { email: decoded.email, name: decoded.name },
           "afdf543asg34r2f498af",
           { expiresIn: "15m" }
         );

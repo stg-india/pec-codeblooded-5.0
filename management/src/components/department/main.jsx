@@ -2,7 +2,7 @@ import React from "react";
 import Search from "../utils/Search";
 import Button from "../utils/Button";
 import { ModifiedTable } from "../utils//ModifiedTable";
-import { data, columns } from "../utils/student_sampleData";
+// import { data, columns } from "../utils/student_sampleData";
 import {LogButton} from "../utils/LogButton";
 
 const Main = () => {
