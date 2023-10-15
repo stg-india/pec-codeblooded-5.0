@@ -31,9 +31,11 @@ const Home = () => {
             <div>
               <h1>Who we Are?</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt commodi aliquam nam 
-                labore ullam rerum deleniti animi harum suscipit corrupti atque eaque iste corporis sed 
-                omnis debitis, tempore dignissimos? In.
+              We're diving into years of H1B data, extracting valuable insights without the computational bulk. 
+              Our focus is on precision: counting records, finding average salaries, and identifying middle and upper income brackets. 
+              With a keen eye on efficiency, we're streamlining these analyses, ensuring a seamless experience for our users.
+              We're not just crunching numbers; we're deciphering trends, highlighting outliers, and unveiling nuanced employment patterns within the data. 
+              Our commitment to clarity and efficiency drives us to present complex findings in an accessible manner, empowering users to make informed decisions confidently.
               </p>
             </div>
         </div>

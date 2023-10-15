@@ -36,10 +36,43 @@
 .home2{
     width: 100%; 
     height: 100vh;
-    // background-color: $second; 
+    background-color: $second; 
     padding: 500px 0px; 
     display: flex; 
     align-items: center; 
     justify-content: center;
-    margin-top: -200px; 
+    > img{
+        width: 30%; 
+        animation: imgUp 0.7s infinite alternate; 
+    }
+    >div{
+        display:flex; 
+        background-color: $first;
+        flex-direction: column;
+        padding: 1rem; 
+        width:70%; 
+        // justify-content: center;
+        align-items: center;
+        height:55vh;
+        border-radius: 200px 0 0 200px; 
+        padding: 2rem; 
+        >h1{
+            // border-bottom: 2px solid $dark; 
+            font: 400 2rem $text2; 
+            padding: 1rem; 
+            width: 15rem;
+            color: $dark; 
+        }
+        p{
+            color: $dark; 
+            letter-spacing: 0.5px;
+            font: 200 1.2rem $text2; 
+            // word-spacing: 2px; 
+        }
+    }
+}
+@keyframes imgUp{
+    to{
+        transform: translateY(-10px); 
+    }
 }
