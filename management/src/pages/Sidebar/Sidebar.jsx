@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { MdSpaceDashboard as Dash } from "react-icons/md";
 import { HiUserGroup as EventIcon } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -37,7 +38,7 @@ const Sidebar = () => {
     <div className="flex flex-col h-full text-white bg-gray-50 border-r-[1px] w-full shadow-sm font-NunitoSans">
       <div className="relative justify-end w-full h-full bg-black-gradient">
         <div className="p-4">
-          <div className="text-white text-4xl">
+          <div className="text-white text-4xl flex">
             <svg
               fill="none"
               // height="15%"
@@ -56,12 +57,13 @@ const Sidebar = () => {
                 fill="#6366F1"
               ></path>
             </svg>
+            <div className="ml-2 font-bold">PEC</div>
           </div>
           <div className="h-16 w-full bg-white/10 rounded-lg mt-4 p-4 flex-col justify-center font-openSans hidden md:flex">
             <div className="text-xl font-openSans font-bold tracking-wider">
               Student Management
             </div>
-            <div className="text-white/70">Create | Save | Validate</div>
+            <div className="text-white/70">Create | Save | Manage</div>
           </div>
         </div>
         <hr className="border-white/30 my-4" />
@@ -71,7 +73,6 @@ const Sidebar = () => {
           )}
         </div>
         <hr className="border-white/30 my-4" />
-        <div></div>
       </div>
     </div>
   );
@@ -80,6 +81,7 @@ const Sidebar = () => {
 function element(index, value, path, Icon, isSelect) {
   return (
     <Link
+      onClick={() => toast(`Landed On ${value}`)}
       key={index}
       to={path}
       className="relative group flex items-center justify-start h-12 hover:bg-white/10 rounded-lg px-2"
