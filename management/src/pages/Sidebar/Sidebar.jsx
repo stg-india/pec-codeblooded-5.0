@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { MdSpaceDashboard as Dash } from "react-icons/md";
 import { HiUserGroup as EventIcon } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Sidebar = () => {
   const location = useLocation();
   const list = [
     {
       name: "DashBoard",
-      path: "/",
+      path: "/dashboard",
       icon: Dash,
       on: false,
     },
@@ -80,6 +81,7 @@ const Sidebar = () => {
 function element(index, value, path, Icon, isSelect) {
   return (
     <Link
+      onClick={() => toast("Landed On Dashboard")}
       key={index}
       to={path}
       className="relative group flex items-center justify-start h-12 hover:bg-white/10 rounded-lg px-2"
