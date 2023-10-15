@@ -4,4 +4,42 @@
     width:100%; 
     height:100vh; 
     background-color: $second; 
+    >main{
+        position: absolute;
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+        height:100%; 
+        padding:2rem; 
+        justify-content: center; 
+    img{
+        width:21rem; 
+    }
+    .Writer{
+         font: 1000 2.8rem $text2; 
+         color: $first; 
+         margin: 2rem; 
+     }
+    div{
+        width:100%;
+        display:flex; 
+        justify-content: center;
+        align-items: center; 
+
+        font: 600 1.5rem $text2;
+        color: $first; 
+        padding: 1rem; 
+    }
+    }
+}
+.home2{
+    width: 100%; 
+    height: 100vh;
+    // background-color: $second; 
+    padding: 500px 0px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    margin-top: -200px; 
 }

@@ -15,7 +15,7 @@ nav{
         align-items: center;
         justify-content: center; 
         >h1{
-            font: 700 1.5rem $text1;
+            font: 550 1.5rem $text2;
             color: $first; 
             padding: 0.1rem; 
         }
@@ -31,7 +31,7 @@ nav{
         >a{
             color: $first; 
             margin: 3rem; 
-            font: 1000 1.1rem $text1;
+            font: 1000 1.1rem $text2;
             &:hover{
                 color: lightgreen; 
             }
