@@ -16,12 +16,12 @@ const refreshJWT = (req, res) => {
         if (err) return res.sendStatus(403);
 
         const accessToken = jwt.sign(
-          { username: decoded.username },
+          { email: decoded.email },
           "afdf543asg34r2f498af",
           { expiresIn: "15m" }
         );
 
-        res.json({ username: decoded.username, accessToken });
+        res.json({ email: decoded.email, accessToken });
       }
     );
 }

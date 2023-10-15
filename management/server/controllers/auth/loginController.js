@@ -4,14 +4,10 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config()
 
 const handleLogin = async (req, res) => {
-  console.log(req.body)
-  const { nameOrmail, password } = req.body;
-  if (!nameOrmail || !password) return res.sendStatus(401)
+  const { name, password, email } = req.body;
+  if (!name || !password || !email) return res.sendStatus(401)
 
-  let foundUser;
-  if (nameOrmail.includes("@"))
-    foundUser = await User.findOne({ email: nameOrmail });
-  else foundUser = await User.findOne({ username: nameOrmail });
+  let foundUser = await User.findOne({ email: email });
 
   if (!foundUser) return res.sendStatus(401); //unauthorized
 
@@ -20,14 +16,14 @@ const handleLogin = async (req, res) => {
     
     const accessToken = jwt.sign(
       {
-        username: foundUser.username,
+        email: foundUser.email,
       },
       process.env.ACCESS_TOKEN_SECRET,
       { expiresIn: "10m" }
     );
     const refreshToken = jwt.sign(
       {
-        username: foundUser.username,
+        email: foundUser.email,
       },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "1d" }
@@ -40,7 +36,7 @@ const handleLogin = async (req, res) => {
       httpOnly: true,
       sameSite: "none",
     });
-    res.json({ accessToken, username:foundUser.username }); 
+    res.json({ accessToken, name:foundUser.name }); 
   }
   else {
     res.sendStatus(401); 
