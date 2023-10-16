@@ -34,17 +34,37 @@ const addStudentPage = ({ studentState, setStudentState, parentState, setParentS
             params: { email: auth.email }
         }
     }
+    
     const [mutate, isLoading, status, isDone] = useSubmit();
     useEffect(() => {
         console.log(status);
         if (status == 200) {
-            toast('Successfully Created')
-        }else toast('Something Went Wrong')
+            ()=>toast('Successfully Created')
+            setStudentState({
+              name: "",
+              phone: "",
+              address: "",
+              gender: "",
+              age: "",
+              student_id: "",
+              dep_id: "",
+              branch: "",
+              year: "",
+              semester: "",
+            });
+            setParentState({
+              name: "",
+              occupation: "",
+              phone: "",
+              address: "",
+              gender: "",
+            });
+        }else ()=>toast('Something Went Wrong')
     },[isLoading])
   return (
-    <div className="h-full text-2xl flex flex-col">
-      <div className="px-12 pb-4 text-gray-700 flex">
-        <div>Add New Student</div>
+    <div className="h-full flex flex-col">
+      <div className="px-12 pb-4 text-gray-700 flex ">
+        <div className="text-3xl">Add New Student</div>
         <div
           className="ml-auto"
           onClick={() => mutate("/students/create-student", addStudent)}

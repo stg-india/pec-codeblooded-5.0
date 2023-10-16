@@ -4,7 +4,8 @@ import VerifyAuth from "./setup/VerifyAuth";
 import NotFound from "./pages/not-found/NotFound";
 import { QueryClient, QueryClientProvider } from "react-query";
 import DashBoard from "./pages/dashboard/DashBoard";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 export default function App() {
   const client = new QueryClient();
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
+      <ToastContainer/>
     </div>
   )
 }
