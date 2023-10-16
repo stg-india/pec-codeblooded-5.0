@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 const Student = require('../../model/Student');
 
 
+const AllStudentAudit = async(req,res)=>{
+    const arr = await StudentAudit.find({});
+    return res.status(200).json({audits :arr});
+};
+
 const getStudentsAudit = async(req,res)=>{
     const s_id = req.body.id;
     const studentAudits = await StudentAudit.find({stuId: s_id}).sort({ _id : 1 })
@@ -15,6 +20,8 @@ const revertStudentAudit = async(req,res)=>{
     const data = req.body;
     const id = data.id;
     const curr_v = await StudentAudit.find().count()+1;
+    console.log(data.id);
+    console.log(curr_v);
     
     const currentStudentAudit = await StudentAudit.findOne({version : curr_v});
     
@@ -34,7 +41,6 @@ const revertStudentAudit = async(req,res)=>{
         }
         
         console.log(parentStudentAudit);
-
         await revertBack(parentStudentAudit)
         // var version = Student.dataSize()+1;
         var method = currentStudentAudit.method;
@@ -81,5 +87,6 @@ const revertStudentAudit = async(req,res)=>{
 
 module.exports = {
     getStudentsAudit,
-    revertStudentAudit
+    revertStudentAudit,
+    AllStudentAudit
 }

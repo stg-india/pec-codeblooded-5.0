@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import useAuth from "../../setup/hooks/useAuth";
 import useSubmit from "../../setup/hooks/useSubmit";
-import { useMutation } from "react-query";
 
 export const AuditLog = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { auth } = useAuth();
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const oldData = data.oldState ? data.oldState : {};
   const newData = data.newState ? data.newState.student : {};
-  const [mutate,isLoading,status,isDone] = useSubmit();
-
-  const RevertToThisCommit = (Auditid) => {
-
-  }
-
+  const [mutate, isLoading, status, isDone] = useSubmit();
+  
   return (
     <div className="max-w-full">
       <div>
@@ -25,12 +20,10 @@ export const AuditLog = ({ data }) => {
           onClick={toggleDropdown}
           className="w-full rounded-lg bg-gray-200 hover:bg-gray-300 h-16 flex items-center justify-between"
         >
-          <div className="w-[15%] h-8overflow-hidden">{data.version}</div>
-          <div className="w-[40%] h-8overflow-hidden">{data.message}</div>
-          <div className="w-[20%] h-8overflow-hidden">{data.createdBy}</div>
-          <div className="w-[25%] h-8overflow-hidden">
-            {data.createdAt["$date"]}
-          </div>
+          <div className="w-[25%] h-8overflow-hidden">{data._id}</div>
+          <div className="w-[30%] h-8overflow-hidden">{data.message}</div>
+          <div className="w-[15%] h-8overflow-hidden">{data.createdBy}</div>
+          <div className="w-[20%] h-8overflow-hidden">{data.createdAt}</div>
         </button>
         <div
           className={`transform transition-all ${
@@ -40,7 +33,7 @@ export const AuditLog = ({ data }) => {
           <ul className="w-[30%]">
             <li className="mb-4 mt-6">
               <span className="font-bold">Audit ID : </span>
-              <span>{data.version}</span>
+              <span>{data._id}</span>
             </li>
             <li className="mb-4">
               <span className="font-bold">Audit Message : </span>
@@ -52,7 +45,7 @@ export const AuditLog = ({ data }) => {
             </li>
             <li className="mb-4">
               <span className="font-bold">Created At : </span>
-              {data.createdAt["$date"]}
+              {data.createdAt}
             </li>
           </ul>
           <div className="w-[30%]">
@@ -89,7 +82,15 @@ export const AuditLog = ({ data }) => {
               </tbody>
             </table>
           </div>
-          <button onClick={RevertToThisCommit(data.id["$oid"])} className="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-md shadow-lg">
+          <button
+            onClick={()=>{
+              mutate("/audits/get-revert-logs", {
+                body: { id: data._id },
+                query: { email: auth.email },
+              });
+            }}
+            className="fixed bottom-4 right-4 p-2 bg-blue-500 text-white rounded-md shadow-lg"
+          >
             Revert
           </button>
         </div>

@@ -52,7 +52,7 @@ const Main = () => {
   });
 
   useEffect(() => {
-    // console.log(data?.data.message);
+    console.log(data);
     if (!isLoading && data?.data?.message) {
       const newArrayData = data.data.message.map((item, index) => {
         return {

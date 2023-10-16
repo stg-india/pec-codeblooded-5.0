@@ -1,6 +1,5 @@
 import useAxiosPrivate from "./useAxiosPrivate";
 import { useQuery } from "react-query";
-import axios from "../api/axios";
 const useGetCall = (params) => {
   const axiosPrivate = useAxiosPrivate();
   const {data, isLoading, status } = useQuery(['useGetCall', params], ({signal})=>apiCall(params, signal), {refetchOnWindowFocus:true,cacheTime:0})
@@ -13,7 +12,7 @@ const useGetCall = (params) => {
 
   async function apiCall({ url, query }, signal) {
     try {   
-      const response = await axiosPrivate.get(url, { ...query, signal });
+      const response = await axiosPrivate.get(url, { ...query });
       return response;
     }
     catch (err) {
