@@ -63,7 +63,7 @@ const Sidebar = () => {
             <div className="text-xl font-openSans font-bold tracking-wider">
               Student Management
             </div>
-            <div className="text-white/70">Create | Save | Manage</div>
+            <div className="text-white/70">Create | Update | Read</div>
           </div>
         </div>
         <hr className="border-white/30 my-4" />

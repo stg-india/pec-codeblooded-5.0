@@ -1,5 +1,5 @@
 const express = require('express');
-const Course = require("../../model/Course");
+const Course = require('../../model/Course');
 
 const createCourse = async(req,res)=>{
     console.log("hello");

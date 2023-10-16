@@ -18,11 +18,13 @@ const StudentAudit = new Schema(
       ref: "TechStaff",
     },
     parentAuditId:{
-        type:mongoose.Types.ObjectId,
-        ref:"StudentAudit",
+        type:String,
     },
     method:{
         type:String,
+    },
+    createdBy:{
+      type:String,
     },
     oldState:{},
     newState:{}
