@@ -5,6 +5,7 @@ const StudentAudit = require("../../model/StudentAudit");
 
 const createStudent = async (req, res) => {
   const data = req.body;
+  console.log(data)
   if (
     !data.name ||
     !data.id ||
@@ -51,7 +52,7 @@ const createStudent = async (req, res) => {
   const studentAudit = {
     message: `Student ${savedStudent.name} has been Created`,
     stuId: savedStudent._id,
-    parentAuditId: data.auditId,
+    parentAuditId: data.AuditId,
     method: "Create",
     createdBy: req.query.email,
     oldState: {},
@@ -65,7 +66,7 @@ const createStudent = async (req, res) => {
 
   if (savedStudent && savedParent) {
     console.log("saved");
-    return res.status(200).json({ message: savedStudent });
+    return res.status(200).json({ message: savedStudent,auditId:savedStudentAudit._id });
   } else {
     return res.status(404).json({ message: "error !" });
   }

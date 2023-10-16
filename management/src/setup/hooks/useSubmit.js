@@ -7,7 +7,7 @@ const useSubmit = () => {
   const axiosPrivate= useAxiosPrivate()
   const [status, setStatus] = useState();
   const [isDone, setIsDone] = useState(false);
-  const { mutate, isLoading } = useMutation(apiCall, {
+  const { data, mutate, isLoading } = useMutation(apiCall, {
     onSuccess: (res) => {
       setStatus(res.status);
       toast.success("Successfully Updated", {
@@ -43,7 +43,8 @@ const useSubmit = () => {
     (url, obj)=>mutate({url:url, obj:obj}),
     isLoading,
     status,
-    isDone
+    isDone,
+    data
   ];
   
   async function apiCall({ url, obj }) {

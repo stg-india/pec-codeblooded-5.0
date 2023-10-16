@@ -9,7 +9,7 @@ import useAuth from "../../setup/hooks/useAuth";
 import { toast } from "react-toastify";
 const addStudentPage = ({ studentState, setStudentState, parentState, setParentState }) => {
     const { auth } = useAuth();
-
+    const auditId=localStorage.getItem('auditId');
     const { name, phone, address, gender, age, dep_id, student_id, year, semester, branch } = studentState;
     const addStudent = {
         body: {
@@ -28,17 +28,20 @@ const addStudentPage = ({ studentState, setStudentState, parentState, setParentS
             parentGender: parentState.gender,
             occupation: parentState.occupation,
             parentAddress: parentState.address,
-            parentphone: parentState.phone
+            parentphone: parentState.phone,
+            AuditId:auditId,
         },
         query: {
             params: { email: auth.email }
         }
     }
     
-    const [mutate, isLoading, status, isDone] = useSubmit();
+    const [mutate, isLoading, status, isDone,data] = useSubmit();
     useEffect(() => {
         console.log(status);
         if (status == 200) {
+          localStorage.setItem("AuditId",data.AuditId);
+          console.log(data);
             ()=>toast('Successfully Created')
             setStudentState({
               name: "",
@@ -67,7 +70,7 @@ const addStudentPage = ({ studentState, setStudentState, parentState, setParentS
         <div className="text-3xl">Add New Student</div>
         <div
           className="ml-auto"
-          onClick={() => mutate("/students/create-student", addStudent)}
+          onClick={async () => mutate("/students/create-student", addStudent)}
         >
           <Button text={"Add Student"} />
         </div>
