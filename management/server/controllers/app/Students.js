@@ -74,11 +74,20 @@ const createStudent = async (req, res) => {
 };
 
 const getStudents = async (req, res) => {
+    const { name } = req.query;
   const Students = await Student.find();
   return res.status(200).json({ message: Students });
 };
 
+const deleteStudent = async (req, res) => {
+    const data = req.body;
+    console.log(data);
+    const deletedStudent = await Student.deleteOne({ _id: data.id });
+    return res.status(200).json({ message: "success bro" });
+}
+
 module.exports = {
   getStudents,
-  createStudent,
+    createStudent,
+  deleteStudent,
 };

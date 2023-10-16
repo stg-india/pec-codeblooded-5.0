@@ -21,6 +21,7 @@ const Main = () => {
     batchYear: "",
     branch: "",
     cgpa: "",
+    id:"",
   }]);
 
   const [studentState, setStudentState] = useState({
@@ -54,6 +55,7 @@ const Main = () => {
   useEffect(() => {
     // console.log(data?.data.message);
     if (!isLoading && data?.data?.message) {
+      console.log(data.data.message)
       const newArrayData = data.data.message.map((item, index) => {
         return {
           name: item.name,
@@ -62,10 +64,12 @@ const Main = () => {
           batchYear: item.year,
           branch: item.branch,
           cgpa: item.cgpa,
+          id: item._id,
         }
       });
 
       setStudentList([...newArrayData]);
+
     }
   }, [isLoading,data])
 

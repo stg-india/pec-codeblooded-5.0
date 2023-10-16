@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import axios from "../api/axios";
 const useGetCall = (params) => {
   const axiosPrivate = useAxiosPrivate();
-  const {data, isLoading, status } = useQuery(['useGetCall', params], ({signal})=>apiCall(params, signal), {refetchOnWindowFocus:true,cacheTime:0})
+  const {data, isLoading, status } = useQuery(['useGetCall', params], ({signal})=>apiCall(params, signal), {refetchOnWindowFocus:true, refetchOnMount:true, cacheTime:0})
 
     return [
     data,
