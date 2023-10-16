@@ -57,12 +57,29 @@ export const studentBoxData = {
       placeholder: "Eg: 70873...",
     },
     {
+      value: "Age",
+      icon: <PhoneIcon />,
+      placeholder: "Eg: 18",
+    },
+    {
       value: "Address",
       icon: <AddressIcon />,
       placeholder: "Eg: Chandigarh, India",
     },
     {
       value: "Department",
+      icon: <SemesterIcon />,
+      element: "",
+      placeholder: "Eg: 12211",
+    },
+    {
+      value: "Branch",
+      icon: <DepartmentIcon />,
+      element: "",
+      placeholder: "Eg: Electronics & Comm",
+    },
+    {
+      value: "Student ID",
       icon: <DepartmentIcon />,
       element: "",
       placeholder: "Eg: Electronics & Comm",

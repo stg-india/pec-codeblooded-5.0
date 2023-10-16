@@ -19,20 +19,23 @@ const Student = new Schema(
       type: String,
     },
     age: {
-      type: Number,
+      type: String,
     },
     year: {
       type: String,
     },
     depId: {
-      type: mongoose.Types.ObjectId,
+      type: String,
       ref: "Department",
     },
+    branch: {
+      type: String,
+    },
     sem: {
-      type: Number,
+      type: String,
     },
     CGPA: {
-      type: mongoose.Types.Decimal128,
+      type: String,
     },
   },
   {

@@ -29,7 +29,9 @@ const Main = () => {
     address: "",
     gender: "",
     age: "",
+    student_id:"",
     dep_id: "",
+    branch:"",
     year: "",
     semester: "",
   });
@@ -42,18 +44,30 @@ const Main = () => {
   });
 
   const [data, isLoading, status] = useGetCall({
-    url: "/get-students",
+    url: "/students/get-students",
     query: {
       body: {},
-      params:{email: auth.email}
+      params: { email: auth.email },
     },
   });
 
   useEffect(() => {
-    if (!isLoading) {
-      console.log(data);
+    // console.log(data?.data.message);
+    if (!isLoading && data?.data?.message) {
+      const newArrayData = data.data.message.map((item, index) => {
+        return {
+          name: item.name,
+          sid: item.id,
+          phoneNo: item.phoneNo,
+          batchYear: item.year,
+          branch: item.branch,
+          cgpa: item.cgpa,
+        }
+      });
+
+      setStudentList([...newArrayData]);
     }
-  }, [data])
+  }, [isLoading,data])
 
   return (
     <div>
@@ -75,7 +89,7 @@ const Main = () => {
                   <Button text={"Add Student"} />
                 </div>
               </div>
-              <ModifiedTable columns={columns} data={sample} />
+              <ModifiedTable columns={columns} data={studentList} />
               <div
                 onClick={() => {
                   console.log("came");
