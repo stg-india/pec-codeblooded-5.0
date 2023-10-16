@@ -1,93 +1,59 @@
-import React from 'react'
-import { useState } from 'react';
+import React from "react";
+import { useState } from "react";
+import { AuditLog } from "../utils/AuditLog";
+import { useEffect } from "react";
+import useAuth from "../../setup/hooks/useAuth";
+import useGetCall from "../../setup/hooks/useGetCall";
 const studentAudit = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const {auth} = useAuth();
+  const [AuditList, SetAuditList] = useState([{
+    id: { $oid: "652bfd7b86922665bdf93b46" },
+    message: "Student Nitn Singh has been Created",
+    stuId: { $oid: "652c6079ced6761279eb05de" },
+    method: "Create",
+    newState: {
+      student: {
+        name: "Nitn Singh",
+        id: "3",
+        phoneNo: "9053825452",
+        address: "Rajasthan",
+        gender: "Male",
+        age: "21",
+        sem: "1",
+      },
+    },
+    createdBy:"nitin@gmail.com",
+    createdAt: { $date: "2023-10-15T14:55:55.799Z" },
+    updatedAt: { $date: "2023-10-15T21:58:18.165Z" },
+    _v: 0,
+    version: "1",
+    parentAuditId: "null",
+  }]);
 
-    const toggleDropdown = () => {
-      setIsOpen(!isOpen);
-    };
+  const [data, isLoading, status] = useGetCall({
+    url: "/audits/get-logs",
+    query: {
+      params: {
+        email: auth.email,
+      },
+    },
+  });
+  useEffect(() => {
+    if (!isLoading && !data) {
+      SetAuditList([...data]);
+    }
+  }, [data]);
 
-    const jsonData = {
-      name: "Nitin",
-      sid: "12344",
-      hello: "sjfn",
-    };
   return (
     <>
       <div className="text-3xl font-bold text-left text-gray-900 mb-9">
         Audit Logs
       </div>
-      <div className="max-w-full">
-        <div>
-          <button
-            onClick={toggleDropdown}
-            className="w-full rounded-lg bg-gray-200 hover:bg-gray-300 h-16 flex items-center justify-between"
-          >
-            <div className="w-[20%] h-8overflow-hidden">AuditId</div>
-            <div className="w-[40%] h-8overflow-hidden">AuditMessage</div>
-            <div className="w-[20%] h-8overflow-hidden">AuditCreatedBy</div>
-            <div className="w-[15%] h-8overflow-hidden">AuditCreatedAt</div>
-          </button>
-          <div
-            className={`transform transition-all ${
-              isOpen ? "h-auto scale-y-100 p-4 mb-4" : "h-0 scale-y-0 mb-1"
-            } overflow-hidden flex bg-white border rounded-md shadow-lg`}
-          >
-            <ul className="w-[30%]">
-              <li className="mb-4 mt-6">
-                <span className="font-bold">Audit ID : </span>
-                <span>1234555</span>
-              </li>
-              <li className="mb-4">
-                <span className="font-bold">Audit Message : </span>Created
-                Student
-              </li>
-              <li className="mb-4">
-                <span className="font-bold">Created By : </span>Amit
-              </li>
-              <li className="mb-4">
-                <span className="font-bold">Created At : </span>12/13/2003
-              </li>
-            </ul>
-            <div className="w-[30%]">
-              <span className="font-bold">Old State : </span>
-              <table className="w-8">
-                <tbody>
-                  {Object.keys(jsonData).map((key) => (
-                    <tr key={key}>
-                      <td className="px-6 py-4 font-semibold border-gray-400 border-2 bg-gray-100">
-                        {key}
-                      </td>
-                      <td className="px-6 py-4 border-gray-400 border-2">
-                        {jsonData[key]}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="w-[30%]">
-              <span className="font-bold">New State : </span>
-              <table className="w-8">
-                <tbody>
-                  {Object.keys(jsonData).map((key) => (
-                    <tr key={key}>
-                      <td className="px-6 py-4 font-semibold border-gray-400 border-2 bg-gray-100">
-                        {key}
-                      </td>
-                      <td className="px-6 py-4 border-gray-400 border-2">
-                        {jsonData[key]}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+      {AuditList.map((audit) => (
+        <AuditLog data={audit} />
+      ))}
     </>
   );
-}
+};
 
-export default studentAudit
+export default studentAudit;

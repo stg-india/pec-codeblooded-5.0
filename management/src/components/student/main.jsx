@@ -69,7 +69,6 @@ const Main = () => {
       });
 
       setStudentList([...newArrayData]);
-
     }
   }, [isLoading,data])
 
