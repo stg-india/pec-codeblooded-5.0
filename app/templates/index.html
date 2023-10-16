@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Display Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        body {
+            background-color: hsla(195, 96%, 40%, 0.999);
+            /* background-image: url(https://openclipart.org/image/2400px/svg_to_png/250847/Trees-Landscape-Silhouette.png); */
+            /* background-size: 95%;
+            background-repeat: repeat-x;
+            background-position: center; */
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        .navbar {
+            padding: 20px 40px;
+            /* Adjust padding here */
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            /* Adjust font size here */
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: rgb(71, 70, 70);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .list-group-item {
+            border: none;
+            padding: 5px 0;
+        }
+
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand text-center" href="{% url 'my_view' %}">REGEX</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'mean' %}">Mean</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'median' %}">Median</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'number' %}">Number</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'percentile_25-75' %}">Percentile 25-75</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'full' %}">Show All</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container text-light">
+        <h1>
+            About Us
+        </h1>
+        <p>
+            Welcome to our H1B Data Analysis Platform! We are passionate about leveraging data to gain insights and make informed decisions. Our platform focuses on H1B visa data from the years 2016 to 2019, aiming to provide valuable statistical information and analysis to better understand trends and patterns in foreign labor performance.
+        </p>
+        <h2>
+        Our Objectives
+        </h2>
+        <h4>
+            Data Ingestion and Storage
+            </h4>
+            <p>
+                We ensure seamless ingestion of H1B data into a PostgreSQL database, enabling efficient storage and retrieval for analysis.
+            </p>
+            <h4>
+                Data Analysis and Insights
+                </h4>
+                <p>
+                    Our team is dedicated to deriving meaningful insights from the data. We use SQL queries and custom Python functions to calculate essential statistical measures like mean, median, and percentiles.
+                </p>
+        <h4>
+            API for Accessible Insights
+            </h4>
+            <p>
+                We've built a Django-based API that offers easy access to key metrics such as the number of records, mean salary, median salary, and percentile salaries. Our aim is to make this data readily available for users to empower their decision-making processes.
+            </p>
+        <h4>
+            API for Accessible Insights
+            </h4>
+            <p>
+                We've built a Django-based API that offers easy access to key metrics such as the number of records, mean salary, median salary, and percentile salaries. Our aim is to make this data readily available for users to empower their decision-making processes.
+            </p>
+            <h4>
+                Performance Optimization
+                </h4>
+                <p>
+                    We prioritize performance and continually optimize our platform to ensure swift response times. Through careful code review and leveraging performance measurement tools, we work to enhance user experience.
+                </p>
+        
+        
+    </div>
+    
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
