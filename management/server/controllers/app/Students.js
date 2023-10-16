@@ -48,79 +48,73 @@ const createStudent = async (req, res) => {
     gender: data.parentGender,
   };
 
-    const studentAudit = {
-        message: `Student ${savedStudent.name} has been Created by ${req.queries.email}`,
-        stuId: savedStudent._id,
-        parentAuditId: data.auditId,
-        method: "Create",
-        createdBy:req.queries.email,
-        oldState: {
+  const studentAudit = {
+    message: `Student ${savedStudent.name} has been Created by ${req.queries.email}`,
+    stuId: savedStudent._id,
+    parentAuditId: data.auditId,
+    method: "Create",
+    createdBy: req.queries.email,
+    oldState: {},
+    newState: {
+      student,
+    },
+  };
+  const savedStudentAudit = await StudentAudit.create(studentAudit);
+  console.log("saved : ", savedStudent);
 
-        },
-        newState: {
-            student
-        }
-    }
-    const savedStudentAudit = await StudentAudit.create(studentAudit)
-    console.log("saved : ",savedStudent);
+  const savedParent = await Parent.create(parent);
+  console.log(savedParent);
+  const savedStudent = await Student.create(student);
+  console.log(savedStudent);
 
-    const savedParent = await Parent.create(parent);
-    console.log(savedParent);
-    const savedStudent = await Student.create(student);
-    console.log(savedStudent);
-
-    if (savedStudent && savedParent) {
-        console.log("saved");
-        return res.status(200).json({ message: savedStudent });
-    } else {
-        return res.status(404).json({ message: "error !" });
-    }
-    
+  if (savedStudent && savedParent) {
+    console.log("saved");
+    return res.status(200).json({ message: savedStudent });
+  } else {
+    return res.status(404).json({ message: "error !" });
+  }
 };
 
 const getStudents = async (req, res) => {
-    const { name } = req.query;
+  const { name } = req.query;
   const Students = await Student.find();
   return res.status(200).json({ message: Students });
 };
 
-<<<<<<< HEAD
 const deleteStudent = async (req, res) => {
-    const data = req.body;
-    console.log(data);
-    const deletedStudent = await Student.deleteOne({ _id: data.id });
-    return res.status(200).json({ message: "success bro" });
-}
+  const data = req.body;
+  const deletedStudent = await Student.deleteOne({ _id: data.id });
+  return res.status(200).json({ message: "success bro" });
+};
+
+const getStudent = async (req, res) => {
+  const data = req.body;
+  console.log(data);
+  const student = await Student.find({ _id: data.id });
+  console.log(student);
+  const studentAudits = await StudentAudit.find({ stuId: data.id }).sort({
+    _id: 1,
+  });
+  console.log(studentAudits);
+  return res.status(200).json({ data: student, audits: studentAudits });
+};
+
+const updateStudent = async (req, res) => {
+  const data = req.body;
+  const createdStudent = await Student.updateOne(
+    { _id: data._id },
+    {
+      $set: {
+        data,
+      },
+    }
+  );
+};
 
 module.exports = {
   getStudents,
-    createStudent,
+  createStudent,
+  getStudent,
+  updateStudent,
   deleteStudent,
 };
-=======
-const getStudent = async(req,res)=>{
-    const data = req.body;
-    console.log(data);
-    const student = await Student.find({_id: data.id});
-    console.log(student)
-    const studentAudits = await StudentAudit.find({stuId: data.id}).sort({_id : 1});
-    console.log(studentAudits);
-    return res.status(200).json({data: student , audits : studentAudits});
-}
-
-const updateStudent = async (req,res)=>{
-    const data = req.body;
-    const createdStudent = await Student.updateOne({_id: data._id},{
-        $set : {
-            data
-        }
-    });
-}
-
-module.exports = {
-    getStudents,
-    createStudent,
-    getStudent,
-    updateStudent
-}
->>>>>>> a8ce35ded4cab607a8a806558eaad69f7a1d9be8
