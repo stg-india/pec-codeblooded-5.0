@@ -1,60 +1,84 @@
-const express = require('express');
-const Student = require('../../model/Student');
-const Parent = require('../../model/Parent');
-const StudentAudit = require('../../model/StudentAudit');
+const express = require("express");
+const Student = require("../../model/Student");
+const Parent = require("../../model/Parent");
+const StudentAudit = require("../../model/StudentAudit");
 
+const createStudent = async (req, res) => {
+  const data = req.body;
 
-const createStudent = async(req,res)=>{
-    const data = req.body;
-    console.log(data)
-    const student = {
-        name: data.name,
-        id: data.id,
-        phoneNo: data.phoneNo,
-        address: data.address,
-        gender: data.gender,
-        age: data.age,
-        depId: data.depId,
-        sem: data.sem,
-        CGPA: data.CGPA
-    };
+  console.log(data);
+  if (
+    !data.name ||
+    !data.id ||
+    !data.phoneNo ||
+    !data.address ||
+    !data.gender ||
+    !data.age ||
+    !data.depId ||
+    !data.sem ||
+    !data.year ||
+    !data.branch ||
+    !data.parentName ||
+    !data.occupation ||
+    !data.parentphone ||
+    !data.parentAddress ||
+    !data.parentGender
+  )
+    return res.status(404);
 
-    // const parentData = req.body;
-    // create a parent entry as well 
+  const student = {
+    name: data.name,
+    id: data.id,
+    phoneNo: data.phoneNo,
+    address: data.address,
+    gender: data.gender,
+    branch: data.branch,
+    age: data.age,
+    depId: new Object(data.depId),
+    sem: data.sem,
+    year: data.year,
+    CGPA: data.CGPA,
+  };
 
-    const savedStudent = await Student.create(student);
+  const parent = {
+    name: data.parentName,
+    occupation: data.occupation,
+    phoneNo: data.parentphone,
+    address: data.parentAddress,
+    gender: data.parentGender,
+  };
 
-    const studentAudit = {
-        message: `Student ${savedStudent.name} has been Created`,
-        stuId: savedStudent._id,
-        parentAuditId: data.auditId,
-        method: "Create",
-        oldState: {
+  const savedParent = await Parent.create(parent);
+  console.log(savedParent);
+  const savedStudent = await Student.create(student);
+  console.log(savedStudent);
+  const studentAudit = {
+    message: `Student ${savedStudent.name} has been Created`,
+    stuId: savedStudent._id,
+    parentAuditId: data.auditId,
+    method: "Create",
+    oldState: {},
+    newState: {
+      student,
+    },
+  };
+  const savedStudentAudit = await StudentAudit.create(studentAudit);
+  // console.log("saved : ", savedStudent);
 
-        },
-        newState: {
-            student
-        }
-    }
-    const savedStudentAudit = await StudentAudit.create(studentAudit)
-    console.log("saved : ",savedStudent);
-    
-
-    if(savedStudent){
-        return res.status(200).json({message : savedStudent});
-    }else{
-        return res.status(404).json({message : "error !"});
-    }
-
+  if (savedStudent && savedParent) {
+    console.log("saved");
+    return res.status(200).json({ message: savedStudent });
+  } else {
+    return res.status(404).json({ message: "error !" });
+  }
 };
 
-const getStudents = async(req,res)=>{
-    const Students = await Student.find();
-    return res.status(200).json({message : Students});
+const getStudents = async (req, res) => {
+  const Students = await Student.find();
+  return res.status(200).json({ message: Students });
 };
-
 
 module.exports = {
-    getStudents,
-    createStudent
-}
+  getStudents,
+  createStudent,
+};
